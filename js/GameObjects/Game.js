@@ -1,12 +1,16 @@
 Cod.Game = function (game) {
     this.game = game;
 
-    this.land;
-    this.cities;
-    this.plane;
-    this.bomb;
-    this.score;
-    this.scoreText;
+    this.powerUps = new array();
+    this.powerUps.push('rapidfire');
+    this.powerUps.push('life');
+
+    this.puPositions = new array();
+    this.puPositions.push(new Phaser.Point(100,100));
+    this.puPositions.push(new Phaser.Point(500,100));
+    this.puPositions.push(new Phaser.Point(633,633));
+    this.puPositions.push(new Phaser.Point(100,700));
+    this.puPositions.push(new Phaser.Point(700,700));
 
     this.map;
     this.layer;
@@ -18,8 +22,8 @@ Cod.Game = function (game) {
     this.droppedThisRun;
     this.heights;
     
-  	this.lineH = new Phaser.Line();
-  	this.lineV = new Phaser.Line();
+    this.lineH = new Phaser.Line();
+    this.lineV = new Phaser.Line();
     
     this.hgo;// = new ManoGO(this.game);
     this.mgo;// = new MazoGO(game);
@@ -163,8 +167,8 @@ this.gameFinish = false;
 //    this.add.sprite(this.fg.posisionPantallaX(5),this.fg.posisionPantallaY(65),'ejer_atk');
 //    l1 = new Phaser.line(0,this.fg.posisionPantallaX(65),0,this.fg.posisionPantallaY(5));
 //console.info(this.fg.posisionPantallaX());
-//		this.lineH.setTo(this.fg.posisionPantallaX(5),this.fg.posisionPantallaY(65),1366,635);
-//		this.lineV.setTo(50,1366,50,68);
+//      this.lineH.setTo(this.fg.posisionPantallaX(5),this.fg.posisionPantallaY(65),1366,635);
+//      this.lineV.setTo(50,1366,50,68);
 //    var l3 = this.line(0,1366,0,68);
 
 this.text1.text = "Life: "+this.j.life;
@@ -181,7 +185,7 @@ this.text2.text = "Life: "+this.j2.life;
 //    this.button.onInputOut.add(out, this);
 //    this.button.onInputUp.add(up, this);
 
-	},
+    },
     fullscreenClick: function (){
     if (this.game.scale.isFullScreen)
     {
@@ -223,7 +227,7 @@ this.text2.text = "Life: "+this.j2.life;
         this.takeLife(obj1.name,25);
     },
 
-	update: function () {
+    update: function () {
         if (this.gameFinish)
         {
             return;
@@ -256,7 +260,7 @@ this.text2.text = "Life: "+this.j2.life;
 //      this.j2.update();
 
 
-	},
+    },
 
     gameOver: function (whoWin,whoLost) {
         this.gameplay_sound.stop();
@@ -283,11 +287,11 @@ this.text2.text = "Life: "+this.j2.life;
 //        this.game.paused = true;
     },
 
-	quitGame: function () {
+    quitGame: function () {
 
-		this.state.start('MainMenu');
+        this.state.start('MainMenu');
 
-	},
+    },
   
   render : function() {
 //    this.game.debug.geom(this.lineH);

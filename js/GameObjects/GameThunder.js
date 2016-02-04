@@ -20,8 +20,8 @@ Cod.GameThunder = function (game) {
     this.droppedThisRun;
     this.heights;
     
-  	this.lineH = new Phaser.Line();
-  	this.lineV = new Phaser.Line();
+    this.lineH = new Phaser.Line();
+    this.lineV = new Phaser.Line();
     
     this.hgo;// = new ManoGO(this.game);
     this.mgo;// = new MazoGO(game);
@@ -55,7 +55,7 @@ Cod.GameThunder = function (game) {
 
 Cod.GameThunder.prototype = {
 
-	create: function () {
+  create: function () {
     this.EscapeKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ESC);
     this.fg = new FuncionesGenerales(this.game);
     this.registry = new Registry();
@@ -146,7 +146,7 @@ this.tb.visible = false;
   this.timer3.start(0);
     this.game.add.image(0, 0, 'textInsDiosTrueno');
 
-	},
+  },
 
     showTimer: function (){
 //        console.info('timer: '+ this.game.time.totalElapsedSeconds());
@@ -231,27 +231,27 @@ this.tb.visible = false;
         }
     },
 
-	update: function () {
-	},
+  update: function () {
+  },
 
 showParticles: function(donde){
         switch(donde){
             case 1:
                 this.emitterGreen.x = 200;
                 this.emitterGreen.y = 350;
-                this.emitterGreen.start(true, 500, null, 50);
+                this.emitterGreen.start(true, 300, null, 50);
                 thunder1_sound.play();
             break;
             case 2:
                 this.emitterPink.x = 640;
                 this.emitterPink.y = 220;
-                this.emitterPink.start(true, 500, null, 50);
+                this.emitterPink.start(true, 300, null, 50);
                 thunder2_sound.play();
             break;
             case 3:
                 this.emitterBlue.x = 1100;
                 this.emitterBlue.y = 450;
-                this.emitterBlue.start(true, 500, null, 50);
+                this.emitterBlue.start(true, 300, null, 50);
                 thunder3_sound.play();
             break;
         }
@@ -279,11 +279,11 @@ showParticles: function(donde){
 
     },
 
-	quitGame: function () {
+  quitGame: function () {
 
-		this.state.start('MainMenu');
+    this.state.start('MainMenu');
 
-	},
+  },
   
     render : function() {
 
